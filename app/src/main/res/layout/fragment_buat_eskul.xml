@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".Fragments.BuatEskulFragment">
+
+
+    <EditText
+        android:id="@+id/Edittext_nama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@android:color/darker_gray"
+        android:hint="Nama Eskul"
+        android:layout_margin="10dp"
+        android:padding="15dp"
+        android:singleLine="true"
+        android:imeOptions="actionNext"/>
+    <EditText
+        android:id="@+id/Edittext_bayaran"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@android:color/darker_gray"
+        android:hint="Bayaran"
+        android:layout_margin="10dp"
+        android:padding="15dp"
+        android:singleLine="true"
+        android:imeOptions="actionNext"/>
+    <EditText
+        android:id="@+id/Edittext_Tentang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@android:color/darker_gray"
+        android:hint="Tentang"
+        android:layout_margin="10dp"
+        android:padding="15dp"
+        android:singleLine="true"
+        android:imeOptions="actionNext"/>
+    <LinearLayout
+        android:gravity="center"
+        android:background="@drawable/bg"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Spinner
+            android:background="@android:color/darker_gray"
+            android:id="@+id/spinner_hari"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:entries="@array/hari"
+            android:padding="15dp" />
+
+        <Button
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/darker_gray"
+            android:id="@+id/jam"
+            android:layout_margin="5dp"
+            android:padding="15dp"
+            android:text="Pilih Jam"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/tambah"
+        android:layout_margin="10dp"
+        android:padding="15dp"
+        android:text="Tambahkan"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
