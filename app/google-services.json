@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "707311083012",
+    "project_id": "aplikasieskul",
+    "storage_bucket": "aplikasieskul.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:707311083012:android:e753ecb4f76c2201da9f51",
+        "android_client_info": {
+          "package_name": "com.kmmi.aplikasieskulguru"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "707311083012-7m5908q4l6094rlqr7klgcigpa8ukt6b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvQcIvekz3srkPAjQCjtILOOf49EmJo5Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "707311083012-7m5908q4l6094rlqr7klgcigpa8ukt6b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
