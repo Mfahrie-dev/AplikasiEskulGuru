@@ -65,6 +65,13 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"/>
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/foto"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:src="@drawable/ic_baseline_insert_photo_24"/>
+
     <Button
         android:id="@+id/tambah"
         android:layout_margin="10dp"
@@ -73,4 +80,6 @@
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+
 </LinearLayout>

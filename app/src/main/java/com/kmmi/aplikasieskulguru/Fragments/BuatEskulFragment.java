@@ -1,8 +1,13 @@
 package com.kmmi.aplikasieskulguru.Fragments;
 
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.text.format.DateFormat;
@@ -12,10 +17,17 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.kmmi.aplikasieskulguru.Api.EskulApi;
 import com.kmmi.aplikasieskulguru.R;
 
@@ -35,7 +47,12 @@ public class BuatEskulFragment extends Fragment {
     Spinner hari;
     TimePickerDialog timePickerDialog ;
     Calendar calendar;
-    String var_hari, var_jam;
+    String var_hari, var_jam,uri_foto, tanggal;
+    Uri path;
+    ImageView foto_eskul;
+    ProgressDialog progressDialog;
+    FirebaseStorage storage;
+    StorageReference reference;
 
     public BuatEskulFragment() {
 
@@ -53,6 +70,19 @@ public class BuatEskulFragment extends Fragment {
         tambah  =   view.findViewById(R.id.tambah);
         hari    =   view.findViewById(R.id.spinner_hari);
         jam     =   view.findViewById(R.id.jam);
+        foto_eskul= view.findViewById(R.id.foto);
+        storage  = FirebaseStorage.getInstance();
+
+        foto_eskul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent  = new Intent();
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                startActivityForResult(intent, 100);
+            }
+        });
+
 
         hari.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -90,25 +120,38 @@ public class BuatEskulFragment extends Fragment {
         tambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                insertEskul(view);
+                uploadFoto();
             }
         });
 
         return view;
     }
-    private void insertEskul(View view){
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100 ){
+            foto_eskul.setImageURI(data.getData());
+            path    =   data.getData();
+        }
+    }
+
+    private void insertEskul(){
         Retrofit retrofit   =   new Retrofit.Builder()
-                .baseUrl("https://ublmobilekmmi.web.id/")
+                .baseUrl(getString(R.string.base_url))
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
         EskulApi api    =   retrofit.create(EskulApi.class);
-        Call<String> call   =   api.insertEskul(nama.getText().toString(), Integer.parseInt(bayaran.getText().toString()), var_hari, var_jam, tentang.getText().toString());
+        Call<String> call   =   api.insertEskul(nama.getText().toString(), Integer.parseInt(bayaran.getText().toString()), var_hari, var_jam, tentang.getText().toString(), uri_foto);
 
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()){
                     Toast.makeText(getContext(), response.body(), Toast.LENGTH_SHORT).show();
+                    if (progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                 }else {
                     Toast.makeText(getContext(), response.toString(), Toast.LENGTH_SHORT).show();
                 }
@@ -120,5 +163,37 @@ public class BuatEskulFragment extends Fragment {
             }
         });
 
+    }
+    private void uploadFoto(){
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setTitle("Membuat Eskul");
+        progressDialog.setMessage("Mengupload Foto.....");
+        progressDialog.setCancelable(false);
+        progressDialog.create();
+        progressDialog.show();
+        calendar    =   Calendar.getInstance();
+        tanggal     =   new SimpleDateFormat("dd-MM-yyyy (HH:mm:ss)").format(calendar.getTime());
+        reference   =   storage.getReference("fotoEskul/" + tanggal  );
+        UploadTask task = reference.putFile(path);
+
+        Task<Uri> upload = task.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+            @Override
+            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                if (!task.isSuccessful()){
+                    throw task.getException();
+                }
+                return reference.getDownloadUrl();
+            }
+        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+            @Override
+            public void onComplete(@NonNull Task<Uri> task) {
+                if (task.isSuccessful()){
+                    uri_foto = task.getResult().toString();
+                    insertEskul();
+                }else {
+                    Toast.makeText(getContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }

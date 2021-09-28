@@ -2,6 +2,7 @@
     <string name="app_name">AplikasiEskulGuru</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="base_url">https://ublmobilekmmi.web.id/</string>
 
     <array name="hari">
         <item>--Pilih Hari--</item>
@@ -12,5 +13,10 @@
         <item>Jumat</item>
         <item>Sabtu</item>
         <item>Minggu</item>
+    </array>
+    <array name="status">
+        <item>--Pilih Status Pengumuman--</item>
+        <item>yes</item>
+        <item>no</item>
     </array>
 </resources>
