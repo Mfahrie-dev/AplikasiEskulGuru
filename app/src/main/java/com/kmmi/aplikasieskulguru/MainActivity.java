@@ -22,6 +22,6 @@ public class MainActivity extends AppCompatActivity {
         viewPager   =   findViewById(R.id.viewpager);
 
         tabLayout.setupWithViewPager(viewPager);
-        viewPager.setAdapter(new PagetAdapter(getSupportFragmentManager(), MainActivity.this, 2));
+        viewPager.setAdapter(new PagetAdapter(getSupportFragmentManager(), MainActivity.this, 3));
     }
 }

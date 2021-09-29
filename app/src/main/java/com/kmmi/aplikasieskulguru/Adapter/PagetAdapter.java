@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.kmmi.aplikasieskulguru.Fragments.BuatEskulFragment;
 import com.kmmi.aplikasieskulguru.Fragments.PengumunanFragment;
+import com.kmmi.aplikasieskulguru.Fragments.SiswaFragments;
 
 public class PagetAdapter extends FragmentStatePagerAdapter {
 
@@ -32,7 +33,9 @@ public class PagetAdapter extends FragmentStatePagerAdapter {
         if (position == 1){
             return  new PengumunanFragment();
         }
-
+        if (position == 2){
+            return new SiswaFragments();
+        }
         return null;
     }
 
@@ -46,10 +49,13 @@ public class PagetAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
 
         if (position == 0){
-            return "Buat Eskul";
+            return "Eskul";
         }
         if (position == 1){
             return "Pengumuman";
+        }
+        if (position == 2){
+            return "Siswa";
         }
 
         return null;

@@ -5,8 +5,10 @@
       <map>
         <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/drawable/bg.xml" value="0.22447916666666667" />
         <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/layout/activity_main.xml" value="0.20833333333333334" />
+        <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/layout/custom_list_siswa.xml" value="0.22" />
         <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/layout/fragment_buat_eskul.xml" value="0.2" />
         <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/layout/fragment_pengumunan.xml" value="0.25" />
+        <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/layout/fragment_siswa_fragments.xml" value="0.20833333333333334" />
       </map>
     </option>
   </component>
