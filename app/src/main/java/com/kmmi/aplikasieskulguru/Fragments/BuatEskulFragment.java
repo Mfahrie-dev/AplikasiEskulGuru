@@ -1,8 +1,10 @@
 package com.kmmi.aplikasieskulguru.Fragments;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -10,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +34,7 @@ import com.google.firebase.storage.UploadTask;
 import com.kmmi.aplikasieskulguru.Api.EskulApi;
 import com.kmmi.aplikasieskulguru.R;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -130,10 +134,18 @@ public class BuatEskulFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 100 ){
-            foto_eskul.setImageURI(data.getData());
-            path    =   data.getData();
-        }
+        if(resultCode == Activity.RESULT_OK)
+            switch (requestCode){
+                case 100:
+                    try {
+                        path = data.getData();
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), path);
+                        foto_eskul.setImageBitmap(bitmap);
+                    } catch (IOException e) {
+                        Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+            }
     }
 
     private void insertEskul(){

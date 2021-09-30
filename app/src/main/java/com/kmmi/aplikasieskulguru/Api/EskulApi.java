@@ -24,4 +24,7 @@ public interface EskulApi {
     );
     @GET("APLIKASI_ESKUL/ESKUL/AllEkskul.php")
     Call<List<EskulModel>> getdataEskul();
+
+    @POST("APLIKASI_ESKUL/ESKUL/getSpesifikEskul")
+    Call<List<EskulModel>> getSpesifikEskul();
 }
