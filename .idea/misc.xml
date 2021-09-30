@@ -3,11 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/drawable/backg.xml" value="0.21979166666666666" />
         <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/drawable/bg.xml" value="0.22447916666666667" />
+        <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/drawable/button_bg.xml" value="0.21552604698672115" />
+        <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/drawable/buttonbg_2.xml" value="0.21979166666666666" />
+        <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/drawable/edittext_bg.xml" value="0.21979166666666666" />
+        <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/layout/activity_daftar_siswa.xml" value="0.184375" />
+        <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/layout/activity_dashboard.xml" value="0.2" />
+        <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/layout/activity_eskul.xml" value="0.2" />
         <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/layout/activity_main.xml" value="0.20833333333333334" />
+        <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/layout/activity_pengumuman.xml" value="0.22" />
+        <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/layout/activity_profile_siswa.xml" value="0.22" />
+        <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/layout/activity_splash.xml" value="0.22" />
         <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/layout/custom_list_siswa.xml" value="0.22" />
-        <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/layout/fragment_buat_eskul.xml" value="0.2" />
-        <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/layout/fragment_pengumunan.xml" value="0.25" />
+        <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/layout/fragment_buat_eskul.xml" value="0.18" />
+        <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/layout/fragment_pengumunan.xml" value="0.22" />
         <entry key="..\:/AndroidProject/UASKMMI/AplikasiEskulGuru/app/src/main/res/layout/fragment_siswa_fragments.xml" value="0.20833333333333334" />
       </map>
     </option>
