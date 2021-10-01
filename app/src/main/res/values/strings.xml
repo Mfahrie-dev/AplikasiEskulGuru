@@ -28,4 +28,11 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <array name="level">
+        <item>--Level Admin--</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </array>
 </resources>
