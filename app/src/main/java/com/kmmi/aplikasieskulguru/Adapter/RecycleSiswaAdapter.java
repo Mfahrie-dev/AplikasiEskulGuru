@@ -59,6 +59,7 @@ public class RecycleSiswaAdapter extends RecyclerView.Adapter<RecycleSiswaAdapte
 
         holder.namaSiswa.setText(listSiswa.get(position).getNama());
         String url = listSiswa.get(position).getFoto_profile();
+
         Glide.with(context).load(url)
                 .centerCrop()
                 .placeholder(R.drawable.ic_baseline_account_circle_24)
